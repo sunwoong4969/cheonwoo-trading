@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://cheonwoo-trading.com/</loc>
+        <loc>https://sunwoong4969.github.io/cheonwoo-trading/</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://cheonwoo-trading.com/#about</loc>
+        <loc>https://sunwoong4969.github.io/cheonwoo-trading/#about</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://cheonwoo-trading.com/#services</loc>
+        <loc>https://sunwoong4969.github.io/cheonwoo-trading/#services</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://cheonwoo-trading.com/#products</loc>
+        <loc>https://sunwoong4969.github.io/cheonwoo-trading/#products</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://cheonwoo-trading.com/#contact</loc>
+        <loc>https://sunwoong4969.github.io/cheonwoo-trading/#contact</loc>
         <lastmod>2024-01-01</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
 </urlset>
+
 
