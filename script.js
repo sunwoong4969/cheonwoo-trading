@@ -37,7 +37,7 @@ window.addEventListener('scroll', () => {
 // 폼 제출 처리
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         // 폼 데이터 수집
@@ -49,11 +49,45 @@ if (contactForm) {
             message: document.getElementById('message').value
         };
         
-        // 실제로는 서버로 전송해야 하지만, 여기서는 알림만 표시
-        alert('문의가 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+        // 제출 버튼 비활성화 및 로딩 표시
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = '전송 중...';
         
-        // 폼 초기화
-        contactForm.reset();
+        try {
+            // 환경에 따른 API 엔드포인트 설정
+            // 개발 환경: localhost, 프로덕션: 실제 백엔드 서버 URL
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const API_BASE_URL = isLocalhost 
+                ? 'http://localhost:3000' 
+                : 'https://여기에_백엔드_서버_URL_입력'; // 예: https://cheonwoo-api.railway.app
+            
+            // 백엔드 API로 데이터 전송
+            const response = await fetch(`${API_BASE_URL}/api/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok) {
+                alert('문의가 접수되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+                contactForm.reset();
+            } else {
+                alert('오류가 발생했습니다: ' + (result.message || '알 수 없는 오류'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('서버 연결 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.');
+        } finally {
+            // 제출 버튼 다시 활성화
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
 }
 
