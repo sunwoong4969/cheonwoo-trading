@@ -61,7 +61,7 @@ if (contactForm) {
             const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
             const API_BASE_URL = isLocalhost 
                 ? 'http://localhost:3000' 
-                : 'https://여기에_백엔드_서버_URL_입력'; // 예: https://cheonwoo-api.railway.app
+                : 'https://cheonwoo-trading-production.up.railway.app'; // 예: https://cheonwoo-api.railway.app
             
             // 백엔드 API로 데이터 전송
             const response = await fetch(`${API_BASE_URL}/api/contact`, {

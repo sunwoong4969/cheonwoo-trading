@@ -127,8 +127,9 @@ app.get('/api/contacts', async (req, res) => {
 });
 
 // 서버 시작
-app.listen(PORT, () => {
-    console.log(`🚀 서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
-    console.log(`📧 문의 API: http://localhost:${PORT}/api/contact`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 Server is running. PORT=${PORT}`);
+    console.log(`📧 POST /api/contact`);
+    console.log(`📋 GET  /api/contacts`);
 });
 
