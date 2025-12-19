@@ -70,14 +70,35 @@ async function sendSMSNotification(contactData) {
                        (contactData.subject ? `제목: ${contactData.subject}\n` : '') +
                        `메시지: ${contactData.message.substring(0, 100)}${contactData.message.length > 100 ? '...' : ''}`;
 
-        const result = await twilioClient.messages.create({
-            body: message,
-            from: process.env.TWILIO_PHONE_NUMBER,
-            to: process.env.ADMIN_PHONE_NUMBER
+        // 여러 전화번호 지원 (쉼표로 구분)
+        const phoneNumbers = process.env.ADMIN_PHONE_NUMBER
+            .split(',')
+            .map(num => num.trim())
+            .filter(num => num.length > 0);
+
+        // 각 번호로 SMS 전송
+        const results = await Promise.allSettled(
+            phoneNumbers.map(phoneNumber => 
+                twilioClient.messages.create({
+                    body: message,
+                    from: process.env.TWILIO_PHONE_NUMBER,
+                    to: phoneNumber
+                })
+            )
+        );
+
+        // 결과 확인
+        let successCount = 0;
+        results.forEach((result, index) => {
+            if (result.status === 'fulfilled') {
+                console.log(`✅ SMS 전송 성공 [${phoneNumbers[index]}]:`, result.value.sid);
+                successCount++;
+            } else {
+                console.error(`❌ SMS 전송 실패 [${phoneNumbers[index]}]:`, result.reason.message);
+            }
         });
 
-        console.log('✅ SMS 전송 성공:', result.sid);
-        return true;
+        return successCount > 0;
     } catch (error) {
         console.error('❌ SMS 전송 실패:', error.message);
         return false;
