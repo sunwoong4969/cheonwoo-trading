@@ -2,6 +2,7 @@
 const express = require('express');
 const mysql = require('mysql2/promise');
 const cors = require('cors');
+const twilio = require('twilio');
 require('dotenv').config();
 
 const app = express();
@@ -45,6 +46,44 @@ pool.getConnection()
         console.error('❌ MariaDB 연결 실패:', err.message);
     });
 
+// Twilio 클라이언트 초기화
+let twilioClient = null;
+if (process.env.TWILIO_ACCOUNT_SID && process.env.TWILIO_AUTH_TOKEN) {
+    twilioClient = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+    console.log('✅ Twilio 클라이언트 초기화 완료');
+} else {
+    console.warn('⚠️ Twilio 환경 변수가 설정되지 않았습니다. SMS 알림 기능이 비활성화됩니다.');
+}
+
+// Twilio SMS 전송 함수
+async function sendSMSNotification(contactData) {
+    if (!twilioClient || !process.env.TWILIO_PHONE_NUMBER || !process.env.ADMIN_PHONE_NUMBER) {
+        console.warn('⚠️ Twilio 설정이 완료되지 않아 SMS를 전송할 수 없습니다.');
+        return false;
+    }
+
+    try {
+        const message = `[천우무역] 새로운 문의가 접수되었습니다.\n\n` +
+                       `이름: ${contactData.name}\n` +
+                       `이메일: ${contactData.email}\n` +
+                       (contactData.phone ? `전화번호: ${contactData.phone}\n` : '') +
+                       (contactData.subject ? `제목: ${contactData.subject}\n` : '') +
+                       `메시지: ${contactData.message.substring(0, 100)}${contactData.message.length > 100 ? '...' : ''}`;
+
+        const result = await twilioClient.messages.create({
+            body: message,
+            from: process.env.TWILIO_PHONE_NUMBER,
+            to: process.env.ADMIN_PHONE_NUMBER
+        });
+
+        console.log('✅ SMS 전송 성공:', result.sid);
+        return true;
+    } catch (error) {
+        console.error('❌ SMS 전송 실패:', error.message);
+        return false;
+    }
+}
+
 // 문의하기 API 엔드포인트
 app.post('/api/contact', async (req, res) => {
     try {
@@ -78,6 +117,12 @@ app.post('/api/contact', async (req, res) => {
             );
             
             console.log('✅ 문의 저장 성공:', result.insertId);
+            
+            // Twilio SMS 알림 전송 (비동기, 실패해도 응답은 정상 반환)
+            sendSMSNotification({ name, email, phone, subject, message })
+                .catch(err => {
+                    console.error('SMS 전송 중 오류 (무시됨):', err);
+                });
             
             res.json({
                 success: true,
