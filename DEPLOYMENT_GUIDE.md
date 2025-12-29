@@ -224,7 +224,7 @@ const corsOptions = {
 ### 프로덕션 테스트
 
 1. **GitHub Pages에서 테스트:**
-   - https://sunwoong4969.github.io/cheonwoo-trading/ 접속
+   - https://www.cheonwoo-trading.site/ 접속
    - 문의하기 폼 작성 및 제출
    - 브라우저 개발자 도구 > Network 탭에서 API 호출 확인
 

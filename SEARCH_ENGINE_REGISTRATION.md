@@ -27,7 +27,7 @@
 2. **"URL 접두어"** 선택
 3. 웹사이트 URL 입력:
    ```
-   https://sunwoong4969.github.io/cheonwoo-trading/
+   https://www.cheonwoo-trading.site/
    ```
 4. **"계속"** 클릭
 
@@ -82,7 +82,7 @@
 
 1. **[네이버 서치어드바이저](https://searchad.naver.com/webmaster)** 접속
 2. **"사이트 추가"** 클릭
-3. URL 입력: `https://sunwoong4969.github.io/cheonwoo-trading/`
+3. URL 입력: `https://www.cheonwoo-trading.site/`
 4. 소유권 확인 (HTML 메타 태그 방법)
 5. `index.html`에 메타 태그 추가
 6. 사이트맵 제출: `sitemap.xml`
@@ -102,7 +102,7 @@
 3. **"사이트 등록"** 클릭
 4. 웹사이트 URL 입력:
    ```
-   https://sunwoong4969.github.io/cheonwoo-trading/
+   https://www.cheonwoo-trading.site/
    ```
 5. 사이트 정보 입력:
    - 사이트명: 군산 천우무역
@@ -129,7 +129,7 @@
 1. **"Add a site"** 또는 **"사이트 추가"** 클릭
 2. 웹사이트 URL 입력:
    ```
-   https://sunwoong4969.github.io/cheonwoo-trading/
+   https://www.cheonwoo-trading.site/
    ```
 3. **"Add"** 클릭
 
@@ -155,7 +155,7 @@
 1. 왼쪽 메뉴에서 **"Sitemaps"** 클릭
 2. 사이트맵 URL 입력:
    ```
-   https://sunwoong4969.github.io/cheonwoo-trading/sitemap.xml
+   https://www.cheonwoo-trading.site/sitemap.xml
    ```
 3. **"Submit"** 클릭
 
@@ -241,22 +241,22 @@
 
 ### 구글
 ```
-site:sunwoong4969.github.io/cheonwoo-trading
+site:www.cheonwoo-trading.site
 ```
 
 ### 네이버
 ```
-site:sunwoong4969.github.io/cheonwoo-trading
+site:www.cheonwoo-trading.site
 ```
 
 ### 다음
 ```
-site:sunwoong4969.github.io/cheonwoo-trading
+site:www.cheonwoo-trading.site
 ```
 
 ### 빙
 ```
-site:sunwoong4969.github.io/cheonwoo-trading
+site:www.cheonwoo-trading.site
 ```
 
 ---
@@ -296,7 +296,7 @@ site:sunwoong4969.github.io/cheonwoo-trading
 - `sitemap.xml` 파일이 GitHub에 업로드되었는지 확인
 - 브라우저에서 직접 접속해서 확인:
   ```
-  https://sunwoong4969.github.io/cheonwoo-trading/sitemap.xml
+  https://www.cheonwoo-trading.site/sitemap.xml
   ```
 
 ### "크롤링이 안 됨"
@@ -315,7 +315,7 @@ site:sunwoong4969.github.io/cheonwoo-trading
 ---
 
 **작성일:** 2024년
-**웹사이트:** https://sunwoong4969.github.io/cheonwoo-trading/
+**웹사이트:** https://www.cheonwoo-trading.site/
 
 
 

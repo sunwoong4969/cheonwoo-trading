@@ -18,7 +18,7 @@
 1. **"사이트 추가"** 또는 **"사이트 등록"** 버튼 클릭
 2. 웹사이트 URL 입력:
    ```
-   https://sunwoong4969.github.io/cheonwoo-trading/
+   https://www.cheonwoo-trading.site/
    ```
 3. **"확인"** 또는 **"등록"** 버튼 클릭
 
@@ -67,7 +67,7 @@
    ```
    sitemap.xml
    ```
-   - 또는 전체 URL: `https://sunwoong4969.github.io/cheonwoo-trading/sitemap.xml`
+   - 또는 전체 URL: `https://www.cheonwoo-trading.site/sitemap.xml`
 4. **"확인"** 또는 **"제출"** 클릭
 
 ---
@@ -104,7 +104,7 @@
 
 ### 네이버에서 사이트 검색:
 ```
-site:sunwoong4969.github.io/cheonwoo-trading
+site:www.cheonwoo-trading.site
 ```
 
 ### 검색어로 검색:
@@ -118,7 +118,7 @@ site:sunwoong4969.github.io/cheonwoo-trading
 
 - [ ] 네이버 서치어드바이저 접속
 - [ ] 웹마스터 도구 > 사이트 추가
-- [ ] 웹사이트 URL 입력: `https://sunwoong4969.github.io/cheonwoo-trading/`
+- [ ] 웹사이트 URL 입력: `https://www.cheonwoo-trading.site/`
 - [ ] 소유권 확인 (HTML 메타 태그 방법)
 - [ ] GitHub에서 `index.html` 수정
 - [ ] 네이버에서 확인 완료
@@ -152,6 +152,6 @@ site:sunwoong4969.github.io/cheonwoo-trading
 - `sitemap.xml` 파일이 GitHub에 업로드되었는지 확인
 - 브라우저에서 직접 접속해서 확인:
   ```
-  https://sunwoong4969.github.io/cheonwoo-trading/sitemap.xml
+  https://www.cheonwoo-trading.site/sitemap.xml
   ```
 

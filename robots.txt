@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # 사이트맵 위치
-Sitemap: https://sunwoong4969.github.io/cheonwoo-trading/sitemap.xml
+Sitemap: https://www.cheonwoo-trading.site/sitemap.xml
 
 # 크롤링 허용 (모든 검색엔진)
 # 특정 경로를 차단하려면 아래 주석을 해제하고 경로 추가
