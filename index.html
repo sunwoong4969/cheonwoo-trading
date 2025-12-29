@@ -73,6 +73,33 @@
         "knowsAbout": ["건축자재", "인테리어자재", "농수산물", "뷰티", "생활용품", "무역", "수출입"]
     }
     </script>
+
+    <!-- 구조화된 데이터 (사이트/조직 - 검색 결과 사이트명 보강용) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://www.cheonwoo-trading.site/#website",
+                "url": "https://www.cheonwoo-trading.site/",
+                "name": "군산 천우무역",
+                "alternateName": "Cheonwoo Trading",
+                "inLanguage": "ko-KR"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://www.cheonwoo-trading.site/#organization",
+                "url": "https://www.cheonwoo-trading.site/",
+                "name": "군산 천우무역",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.cheonwoo-trading.site/assets/profile.svg"
+                }
+            }
+        ]
+    }
+    </script>
     
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
