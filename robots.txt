@@ -1,17 +1,9 @@
-# robots.txt - 검?�엔�??�롤??가?�드
-# 천우무역 ?�사?�트
-
 User-agent: *
 Allow: /
 
-# ?�이?�맵 ?�치
-Sitemap: https://www.cheonwoo-trading.site/sitemap.xml
+# Sitemap 위치
+Sitemap: https://cheonwoo-trading.com/sitemap.xml
 
-# ?�롤�??�용 (모든 검?�엔�?
-# ?�정 경로�?차단?�려�??�래 주석???�제?�고 경로 추�?
-# Disallow: /admin/
+# 크롤링 제외할 디렉토리 (필요시 추가)
 # Disallow: /private/
-
-
-
 
