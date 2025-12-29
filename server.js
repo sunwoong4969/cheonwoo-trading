@@ -9,13 +9,27 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // 미들웨어 설정
-// CORS 설정: GitHub Pages 도메인 허용
+// CORS 설정: GitHub Pages + 커스텀 도메인 허용
+const defaultAllowedOrigins = [
+    'https://sunwoong4969.github.io', // GitHub Pages 도메인
+    'http://localhost:8080',          // 로컬 개발 환경
+    'http://127.0.0.1:8080'           // 로컬 개발 환경
+];
+
+const envAllowedOrigins = (process.env.FRONTEND_ORIGINS || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean);
+
+const allowedOrigins = new Set([...defaultAllowedOrigins, ...envAllowedOrigins]);
+
 const corsOptions = {
-    origin: [
-        'https://sunwoong4969.github.io',  // GitHub Pages 도메인
-        'http://localhost:8080',            // 로컬 개발 환
-        'http://127.0.0.1:8080'             // 로컬 개발 환경
-    ],
+    origin: (origin, callback) => {
+        // 일부 환경(예: 서버 간 호출)에서 Origin이 없을 수 있음
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.has(origin)) return callback(null, true);
+        return callback(new Error(`Not allowed by CORS: ${origin}`));
+    },
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -63,7 +77,7 @@ async function sendSMSNotification(contactData) {
     }
 
     try {
-        const message = `[천우무역] 새로운 문의가 접수되었습니다.\n\n` +
+        const message = `[군산 천우무역] 새로운 문의가 접수되었습니다.\n\n` +
                        `이름: ${contactData.name}\n` +
                        `이메일: ${contactData.email}\n` +
                        (contactData.phone ? `전화번호: ${contactData.phone}\n` : '') +

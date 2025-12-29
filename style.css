@@ -61,11 +61,31 @@ body {
     margin: 0;
 }
 
+.nav-brand .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-brand .brand-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    background: white;
+}
+
+.nav-brand .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .nav-brand .subtitle {
     font-size: 0.75rem;
     color: var(--text-light);
     font-weight: 300;
-    margin-left: 0.5rem;
+    margin-left: 0;
 }
 
 .nav-menu {
@@ -157,6 +177,26 @@ body {
     max-width: 800px;
     padding: 0 20px;
     animation: fadeInUp 1s ease;
+}
+
+.hero-avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 999px;
+    margin: 0 auto 18px;
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hero-title {
@@ -650,6 +690,11 @@ body {
 
     .hero-subtitle {
         font-size: 1rem;
+    }
+
+    .hero-avatar {
+        width: 84px;
+        height: 84px;
     }
 
     .about-content,

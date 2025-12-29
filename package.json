@@ -1,7 +1,7 @@
 {
   "name": "cheonwoo-trading-backend",
   "version": "1.0.0",
-  "description": "천우무역 웹사이트 백엔드 서버",
+  "description": "군산 천우무역 웹사이트 백엔드 서버",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
