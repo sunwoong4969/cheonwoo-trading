@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 3000;
 const corsOptions = {
     origin: [
         'https://sunwoong4969.github.io',  // GitHub Pages 도메인
+        'https://cheonwoo-trading.site',    // 커스텀 도메인
+        'https://www.cheonwoo-trading.site',// 커스텀 도메인 (www)
         'http://localhost:8080',            // 로컬 개발 환
         'http://127.0.0.1:8080'             // 로컬 개발 환경
     ],
